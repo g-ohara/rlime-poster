@@ -1,0 +1,80 @@
+\ProvidesPackage{beamerthemeSimplePoster}
+\mode<presentation>
+\DeclareOptionBeamer{footertext}{\def\SimplePoster@footertext{#1}}
+\ProcessOptionsBeamer{}
+\selectcolormodel{RGB}
+\definecolor{hokudai}{RGB}{25, 125, 54}
+\definecolor{background}{RGB}{230,255,230}
+\setbeamercolor{background canvas}{bg=background}
+\setbeamercolor{headline}{fg=white,bg=hokudai}
+\setbeamercolor{footline}{fg=white,bg=hokudai}
+\setbeamercolor{title in headline}{fg=white}
+\setbeamercolor{author in headline}{fg=white}
+\setbeamercolor{email in headline}{fg=white}
+\setbeamercolor{institute in headline}{fg=white}
+\setbeamercolor{conference in headline}{fg=white}
+\setbeamercolor*{normal text}{fg=black,bg=white}
+\setbeamercolor*{block body}{fg=black,bg=white}
+\setbeamercolor*{block title}{fg=white,bg=hokudai}
+\setbeamerfont{block title}{size=\huge,series=\bf}
+\setbeamercolor{structure}{fg=hokudai}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{block begin}{%
+	\vskip.5ex
+	\begin{beamercolorbox}[
+			rounded=true,
+			shadow=true,
+			leftskip=1em,
+			colsep*=0.9ex]{block title}%
+		\usebeamerfont*{block title}\Large\insertblocktitle{}
+	\end{beamercolorbox}%
+	\usebeamerfont{block body}%
+	\begin{beamercolorbox}[
+			rounded=true,
+			shadow=true,
+			leftskip=1em,
+			rightskip=1em,
+			colsep*=.75ex,
+			sep=1ex,
+			vmode]{block body}%
+		}
+		\setbeamertemplate{block end}{%
+	\end{beamercolorbox}
+	\vskip1.5ex
+}
+\usepackage{graphbox}
+\setbeamertemplate{headline}{%
+	\leavevmode
+	\begin{beamercolorbox}[wd=\paperwidth]{headline}
+		\centering
+		\vskip3ex
+
+		\hspace{-142.0em}
+		\includegraphics[width=.15\textwidth,smash=br]{src/logo}
+
+		\usebeamercolor{title in headline}{%
+			\color{fg}\textbf{\LARGE{\inserttitle}}\\[5ex]
+		}
+		\usebeamercolor{author in headline}{%
+			\color{fg}\Large{\insertauthor}\\[1ex]
+		}
+		\usebeamercolor{email in headline}{%
+			\color{fg}\large{\{genji-ohara, kimura5, mine\}@ist.hokudai.ac.jp}\\[1ex]
+		}
+		\usebeamercolor{institute in headline}{%
+			\color{fg}\large{\insertinstitute}
+		}
+		\vskip6ex
+	\end{beamercolorbox}
+	\vspace{-5ex}
+}
+\setbeamertemplate{footline}{%
+	\begin{beamercolorbox}[wd=\paperwidth,ht=11ex]{footline}
+		\leavevmode%
+		\usebeamercolor{conference in headline}{%
+			\hfill\color{fg}\large{\SimplePoster@footertext}\hspace{1em}
+		}
+		\vskip3ex
+	\end{beamercolorbox}
+}
+\usefonttheme[onlymath]{serif}
